@@ -4,3 +4,4 @@ xgboost
 sklearn
 seaborn
 flask
+gunicorn
