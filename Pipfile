@@ -10,6 +10,7 @@ xgboost = "*"
 sklearn = "*"
 seaborn = "*"
 Flask = "*"
+gunicorn = "*"
 
 [dev-packages]
 
