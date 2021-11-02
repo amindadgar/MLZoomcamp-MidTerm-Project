@@ -32,3 +32,6 @@ Attribute information:
 15) Alopecia: Yes/No
 16) Obesity: Yes/No
 17) Class: Positive/Negative
+
+## To run the project
+The project is now deployed on heroku cloud servers and to test it just run the file [test.ipnyb](https://github.com/amindadgar/MLZoomcamp-MidTerm-Project/blob/main/test_file.ipynb). Or you can just send json data into the link: https://diabetes-prediction-server.herokuapp.com/predict and get the results.
