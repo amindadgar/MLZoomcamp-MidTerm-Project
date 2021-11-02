@@ -20,8 +20,8 @@ def predict():
     heartdisease = y_pred >= 0.5
 
     result = {
-        "heartdisease_probability": float(y_pred),
-        "heartdisease": bool(heartdisease),
+        "probability": float(y_pred),
+        "Diabeties": bool(heartdisease),
     }
 
     return jsonify(result)
