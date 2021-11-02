@@ -27,15 +27,13 @@ output_file = "model.bin"
 
 df = pd.read_csv("diabetes.csv")
 
-df.columns = df.columns.str.lower().str.replace(" ", "_")
-df_full_train, df_test = train_test_split(df, test_size=0.2, random_state=1)
-
 categorical = ['gender']
 ## Can be converted to numerical
 categorical_numerical = ['polyuria','polydipsia','sudden_weight_loss','weakness','polyphagia','genital_thrush','visual_blurring','itching',
         'irritability','delayed_healing','partial_paresis','muscle_stiffness','alopecia','obesity']
 numerical = ['age']
 
+df.columns = df.columns.str.lower().str.replace(" ", "_")
 ## Change 1/0 to True False
 for cat in categorical_numerical:
     df[cat] = (df[cat] == 'Yes').values.astype(int)
@@ -45,6 +43,8 @@ numerical += categorical_numerical
 
 ## Convert outcome into 0/1
 df['class'] = (df['class'] == 'Positive').values.astype(int)
+
+df_full_train, df_test = train_test_split(df, test_size=0.2, random_state=1)
 
     
 
@@ -112,7 +112,7 @@ print("training the final model")
 dv, model = train(df_full_train, df_full_train['class'].values, xgb_params)
 y_pred = predict(df_test, dv, model)
 
-y_test = df_test.target.values
+y_test = df_test['class'].values
 auc = roc_auc_score(y_test, y_pred)
 
 print(f"auc={auc}")
